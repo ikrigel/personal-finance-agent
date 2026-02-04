@@ -36,13 +36,21 @@ const FinanceInput = forwardRef<FinanceInputRef, FinanceInputProps>(
     return (
       <TextInput
         ref={inputRef}
-        size="lg"
+        size="md"
         radius={'xl'}
         placeholder="Ask your finance question..."
         value={value}
         onChange={(e) => onChange(e.currentTarget.value)}
         onKeyDown={handleKeyDown}
-        style={{ width: '100%' }}
+        style={{
+          width: '100%',
+        }}
+        styles={{
+          input: {
+            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+            padding: 'clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px)',
+          },
+        }}
         autoFocus
       />
     );

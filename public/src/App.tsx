@@ -88,31 +88,69 @@ function App() {
       <ActionIcon
         onClick={toggleColorScheme}
         variant="default"
-        size="lg"
+        size="md"
         aria-label="Toggle color scheme"
-        style={{ position: 'absolute', top: 10, right: 10, zIndex: 100 }}
+        style={{ position: 'absolute', top: '12px', right: '12px', zIndex: 100 }}
       >
-        {computedColorScheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        {computedColorScheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
       </ActionIcon>
 
-      <Flex direction={'column'} w={'100%'} align={'center'} p={'xs'} bg={computedColorScheme === 'dark' ? 'dark.7' : 'white'} style={{ position: 'fixed', alignSelf: 'center', zIndex: 2 }}>
-        <Text fw={'bold'} c={'green.5'} fz={'xl'}>Finance Agent</Text>
+      <Flex
+        direction={'column'}
+        w={'100%'}
+        align={'center'}
+        px={'xs'}
+        py={'sm'}
+        bg={computedColorScheme === 'dark' ? 'dark.7' : 'white'}
+        style={{
+          position: 'fixed',
+          alignSelf: 'center',
+          zIndex: 2,
+          borderBottom: '1px solid var(--mantine-color-gray-2)',
+          minHeight: '60px',
+          justifyContent: 'center',
+        }}
+      >
+        <Text fw={'bold'} c={'green.5'} fz={{ base: 'md', sm: 'lg', md: 'xl' }}>
+          Jona & Polo Finance Agent
+        </Text>
       </Flex>
 
-      <Container size={'80%'} style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 0, height: '100%' }}>
+      <Container
+        size="100%"
+        px={{ base: 'sm', sm: 'md', md: 'lg' }}
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          padding: 0,
+          height: '100%',
+          marginTop: '60px',
+          marginBottom: 0,
+        }}
+      >
         <Flex direction="column" style={{ height: '100%' }} justify={'end'}>
-          <Flex direction="column" style={{ overflow: 'auto' }} >
+          <Flex direction="column" style={{ overflow: 'auto', flex: 1 }}>
             <ChatContainer messages={messages} />
           </Flex>
 
           {isLoading && (
-            <Flex align="center" gap="sm" p="md">
+            <Flex align="center" gap="sm" p={{ base: 'sm', sm: 'md' }}>
               <Loader size="sm" />
-              <Text size="sm" c="dimmed">Processing your question...</Text>
+              <Text size="sm" c="dimmed">
+                Processing your question...
+              </Text>
             </Flex>
           )}
 
-          <Flex direction="column" gap={'xs'} align={'center'} p="md" mb={'xl'}>
+          <Flex
+            direction="column"
+            gap={'xs'}
+            align={'center'}
+            p={{ base: 'sm', sm: 'md' }}
+            pb={{ base: 'md', sm: 'lg' }}
+            style={{ width: '100%' }}
+          >
             <GuidingQuestions questions={GUIDING_QUESTIONS} onQuestionClick={handleGuidingQuestionClick} />
             <FinanceInput
               ref={inputRef}
@@ -123,7 +161,7 @@ function App() {
           </Flex>
         </Flex>
       </Container>
-    </div >
+    </div>
   );
 }
 
