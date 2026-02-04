@@ -11,7 +11,10 @@ export const askFinanceAssistant = async (req: any, res: any) => {
     const answer = await processFinanceQuestion(question);
     res.json({ answer });
   } catch (error) {
-    console.error('Error in askFinanceAssistant:', error);
+    console.error('Error in askFinanceAssistant:', error instanceof Error ? error.message : String(error));
+    if (error instanceof Error) {
+      console.error(error.stack);
+    }
     res.status(500).json({ error: 'Internal server error' });
   }
 };
