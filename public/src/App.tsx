@@ -112,7 +112,7 @@ function App() {
         }}
       >
         <Text fw={'bold'} c={'green.5'} fz={{ base: 'md', sm: 'lg', md: 'xl' }}>
-          Jona & Polo Finance Agent
+          ❤️Jona & Polo Finance Agent❤️
         </Text>
       </Flex>
 
